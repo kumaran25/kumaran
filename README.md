@@ -27,12 +27,12 @@ public class MergeJSONObjects {
 		System.out.println("\nmergedJSON: " + mergedJSON);
 	}
  
-	public static JSONObject mergeJSONObjects(JSONObject json1, JSONObject json2) {
+	public static JSONObject mergeJSONObjects(JSONObject json1, JSONObject json2,JSONObject json3) {
 		JSONObject mergedJSON = new JSONObject();
 		try {
-			mergedJSON = new JSONObject(json1, JSONObject.getNames(json1));
-			for (String crunchifyKey : JSONObject.getNames(json2)) {
-				mergedJSON.put(crunchifyKey, json2.get(crunchifyKey));
+			mergedJSON = new JSONObject(json1, JSONObject.getNames(json1),json2, JSONObject.getNames(json2));
+			for (String crunchifyKey : JSONObject.getNames(json3)) {
+				mergedJSON.put(crunchifyKey, json3.get(crunchifyKey));
 			}
  
 		} catch (JSONException e) {
